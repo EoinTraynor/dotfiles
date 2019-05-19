@@ -1,0 +1,1 @@
+/Users/etraynor/dotfiles/.oh-my-zsh/zsh_custom/themes/spaceship-prompt/spaceship.zsh-theme
