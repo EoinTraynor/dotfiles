@@ -2,14 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/etraynor/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
-echo "Running theme:" $ZSH_THEME
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -62,14 +61,25 @@ echo "Running theme:" $ZSH_THEME
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="/Users/etraynor/dotfiles/.oh-my-zsh/zsh_custom"
+ZSH_CUSTOM="$HOME/dotfiles/.oh-my-zsh/zsh_custom"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  github
+  npm
+  yarn
+  brew
+  docker
+  history
+  jira
+  copyfile
+  web-search
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,3 +121,6 @@ eval "$(rbenv init - --no-rehash)"
   # Set Spaceship ZSH as a prompt
   autoload -U promptinit; promptinit
   prompt spaceship
+
+# fortune -s | cowsay -f head-in
+cat $ZSH_CUSTOM/mrb.txt
