@@ -123,4 +123,10 @@ eval "$(rbenv init - --no-rehash)"
   prompt spaceship
 
 # fortune -s | cowsay -f head-in
-cat $ZSH_CUSTOM/mrb.txt
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Auto check nvm version on cd
+source $ZSH_CUSTOM/utils/nvm-check-version.sh
