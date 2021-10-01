@@ -130,3 +130,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # Auto check nvm version on cd
 source $ZSH_CUSTOM/utils/nvm-check-version.sh
+
+# Added by nex: https://git.hubteam.com/HubSpot/nex
+. ~/.hubspot/shellrc
+
+# GO environment variables
+export GOPATH=$HOME/go
+export GOBIN=$HOME/bin
+export PATH=$PATH:$HOME
