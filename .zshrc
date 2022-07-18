@@ -79,6 +79,10 @@ plugins=(
   jira
   copyfile
   web-search
+  vscode
+  node
+  thefuck
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -112,7 +116,7 @@ export PATH="$HOME/.bin:$PATH"
 
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
-
+export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
 
 eval "$(nodenv init -)"
