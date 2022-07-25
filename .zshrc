@@ -83,6 +83,7 @@ plugins=(
   node
   thefuck
   fzf
+  bat
 )
 
 source $ZSH/oh-my-zsh.sh
