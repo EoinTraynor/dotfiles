@@ -27,10 +27,6 @@ brew "imagemagick"
 brew "krb5"
 # YAML Parser
 brew "libyaml"
-# Install NodeJS versions
-brew "node-build"
-# Manage multiple NodeJS versions
-brew "nodenv"
 # Object-relational database system
 brew "postgresql", restart_service: true
 # Cross-platform application and UI framework

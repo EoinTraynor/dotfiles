@@ -61,7 +61,7 @@ ZSH_THEME="spaceship"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$HOME/dotfiles/.oh-my-zsh/zsh_custom"
+ZSH_CUSTOM="$HOME/Code/dotfiles/.oh-my-zsh/zsh_custom"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -81,9 +81,6 @@ plugins=(
   web-search
   vscode
   node
-  thefuck
-  fzf
-  bat
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -117,17 +114,10 @@ export PATH="$HOME/.bin:$PATH"
 
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.nodenv/bin:$PATH"
-export PATH="$HOME/.nodenv/bin:$PATH"
 
-eval "$(nodenv init -)"
-eval "$(rbenv init - --no-rehash)"
-
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
-
-# fortune -s | cowsay -f head-in
+# Set Spaceship ZSH as a prompt
+# autoload -U promptinit; promptinit
+# prompt spaceship
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -135,9 +125,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Auto check nvm version on cd
 source $ZSH_CUSTOM/utils/nvm-check-version.sh
-
-# Added by nex: https://git.hubteam.com/HubSpot/nex
-. ~/.hubspot/shellrc
 
 # GO environment variables
 export GOPATH=$HOME/go
