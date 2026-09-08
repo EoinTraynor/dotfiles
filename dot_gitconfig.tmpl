@@ -1,0 +1,43 @@
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+{{- if (stat (printf "%s/.ssh/id_ed25519_signing" .chezmoi.homeDir)) }}
+	signingkey = {{ .chezmoi.homeDir }}/.ssh/id_ed25519_signing
+{{- end }}
+
+{{- if (stat (printf "%s/.ssh/id_ed25519_signing" .chezmoi.homeDir)) }}
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+{{- end }}
+
+[core]
+	editor = code --wait
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[push]
+	autoSetupRemote = true
+
+[color]
+	ui = auto
+
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+# Work-specific overrides for all repositories under ~/{{ .work_dir }}/
+[includeIf "gitdir:~/{{ .work_dir }}/"]
+	path = ~/.gitconfig-work

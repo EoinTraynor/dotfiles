@@ -1,0 +1,16 @@
+README.md
+CONTRIBUTING.md
+install.sh
+Brewfile
+terminal/**
+.git/**
+.gitignore
+LICENSE
+
+{{ if ne .chezmoi.os "darwin" }}
+Library/**
+{{ end }}
+
+{{ if ne .chezmoi.os "linux" }}
+.config/Code/**
+{{ end }}

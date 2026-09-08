@@ -1,0 +1,98 @@
+# ==============================================================================
+# Zsh Configuration (Managed by chezmoi)
+# ==============================================================================
+
+# Ensure Starship prompt is initialized
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
+
+# ------------------------------------------------------------------------------
+# History Configuration
+# ------------------------------------------------------------------------------
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+
+# ------------------------------------------------------------------------------
+# Completions & Keybindings
+# ------------------------------------------------------------------------------
+autoload -Uz compinit
+compinit -d "$HOME/.cache/zcompdump-$ZSH_VERSION"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+bindkey -e
+
+# ------------------------------------------------------------------------------
+# Node & NVM Integration
+# ------------------------------------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Auto-check and switch node version if .nvmrc is present
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version
+  local nvmrc_path
+  node_version="$(nvm version 2>/dev/null)"
+  nvmrc_path="$(nvm_find_nvmrc 2>/dev/null)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")" 2>/dev/null)
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ -n "$node_version" ] && [ "$node_version" != "$(nvm version default 2>/dev/null)" ]; then
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+
+# ------------------------------------------------------------------------------
+# Aliases
+# ------------------------------------------------------------------------------
+# Navigation & System
+alias reload_zsh="source ~/.zshrc"
+alias dotfiles="cd {{ .chezmoi.sourceDir }}"
+alias zshconfig="code ~/.zshrc"
+
+# Git shortcuts
+alias g="git status"
+alias gb="git branch"
+alias ga="git add"
+alias gc="git commit -m"
+alias gpo="git push origin"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+
+# Node / Package managers
+alias npm_default="npm set registry https://registry.npmjs.org/"
+
+# chezmoi shortcuts
+alias cm="chezmoi"
+alias cma="chezmoi apply"
+alias cmd="chezmoi diff"
+alias cme="chezmoi edit"
+
+# Antigravity (AGY) shortcuts
+if command -v agy >/dev/null 2>&1; then
+    alias agy="agy"
+fi
+
+# ------------------------------------------------------------------------------
+# Local machine overrides & Secrets (Uncommitted)
+# ------------------------------------------------------------------------------
+# Export private tokens (e.g. GEMINI_API_KEY, ANTHROPIC_API_KEY) in ~/.zshrc.local
+if [ -f "$HOME/.zshrc.local" ]; then
+    source "$HOME/.zshrc.local"
+fi
