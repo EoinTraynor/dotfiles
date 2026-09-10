@@ -1,0 +1,26 @@
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# Core development environment variables
+export GOPATH="$HOME/go"
+export GOBIN="$HOME/bin"
+export EDITOR="code --wait"
+export VISUAL="code --wait"
+
+# Deduplicate and build PATH
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  "$HOME/bin"
+  "$GOBIN"
+  /usr/local/bin
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
+  $path
+)
+export PATH

@@ -1,0 +1,9 @@
+[user]
+	name = {{ .name }}
+{{- if .work_email }}
+	email = {{ .work_email }}
+{{- else }}
+	# email = work.email@company.com
+{{- end }}
+	# Optional: Override work signing key if separate from personal
+	# signingkey = ~/.ssh/id_ed25519_work_signing

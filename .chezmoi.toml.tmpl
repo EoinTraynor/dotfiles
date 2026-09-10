@@ -1,0 +1,12 @@
+{{- $name := promptStringOnce . "name" "Your full name" "Eoin Traynor" -}}
+{{- $email := promptStringOnce . "email" "Your personal email address" "eointraynor1@gmail.com" -}}
+{{- $work_email := promptStringOnce . "work_email" "Your work email address (optional)" "" -}}
+{{- $work_dir := promptStringOnce . "work_dir" "Work projects directory relative to HOME" "work" -}}
+
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    work_email = {{ $work_email | quote }}
+    work_dir = {{ $work_dir | quote }}

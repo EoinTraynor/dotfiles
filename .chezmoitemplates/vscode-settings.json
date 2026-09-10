@@ -1,0 +1,107 @@
+{
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue",
+        "typescript",
+        "typescriptreact"
+    ],
+    "eslint.format.enable": true,
+    "extensions.ignoreRecommendations": false,
+    "prettier.requireConfig": true,
+    "editor.tabSize": 2,
+    "editor.rulers": [
+        80
+    ],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.suggestSelection": "first",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.addMissingImports": "explicit",
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit"
+    },
+    "cSpell.userWords": [
+        "authorisation",
+        "backend",
+        "behaviour",
+        "crowdstrike",
+        "customisation",
+        "eoin",
+        "fint",
+        "fontawesome",
+        "get",
+        "hubspot",
+        "iban",
+        "keyup",
+        "localisation",
+        "localised",
+        "organising",
+        "privatises",
+        "todos",
+        "traynor"
+    ],
+    "javascript.updateImportsOnFileMove.enabled": "prompt",
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.iconTheme": "vscode-icons",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.associations": {
+        "*.env*": "dotenv",
+        "*.gts": "plaintext"
+    },
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "go.toolsManagement.autoUpdate": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
+    "typescript.suggest.includeAutomaticOptionalChainCompletions": false,
+    "gitlens.defaultDateFormat": null,
+    "gitlens.remotes": [
+        {
+            "domain": "bitbucket.cicd.dc",
+            "type": "BitbucketServer",
+            "name": "CrowdStrike",
+        }
+    ],
+    "prettier.enableDebugLogs": true,
+    "tailwindCSS.includeLanguages": {
+        "javascript": "javascript",
+        "html": "html",
+        "javascriptreact": "html",
+        "typescriptreact": "html",
+        "plaintext": "html"
+    },
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "on"
+    },
+    "css.lint.unknownAtRules": "ignore",
+    "npm.keybindingsChangedWarningShown": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[handlebars]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[plaintext]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "explorer.confirmDelete": false
+}

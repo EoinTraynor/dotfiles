@@ -1,1 +1,0 @@
-/home/rod/Code/dotfiles/.oh-my-zsh/zsh_custom/themes/spaceship-prompt/spaceship.zsh-theme
