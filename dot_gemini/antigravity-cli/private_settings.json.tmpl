@@ -1,0 +1,31 @@
+{
+  "allowNonWorkspaceAccess": true,
+  "enableTelemetry": false,
+  "permissions": {
+    "allow": [
+      "command(regex:git.*)",
+      "command(regex:gh.*)",
+      "command(regex:(npm|pnpm|yarn|bun).*)",
+      "command(regex:(npx|node).*)",
+      "command(regex:(ls|pwd|cat|head|tail|grep|rg|find|which|echo|mkdir|cp|mv).*)",
+      "command(regex:(tsc|eslint|prettier|next).*)",
+      "command(regex:(python|python3|pytest).*)",
+      "command(regex:curl.*)",
+      "read_url(antigravity.google)",
+      "mcp(filesystem/*)"
+    ],
+    "deny": [
+      "command(regex:sudo .*)",
+      "command(regex:rm -rf (/|~|\\.\\.).*)",
+      "command(regex:git push .*--force.*)",
+      "command(regex:git reset --hard.*)",
+      "read_file(~/.ssh/**)",
+      "read_file(~/.gnupg/**)"
+    ]
+  },
+  "trustedWorkspaces": [
+    "{{ .chezmoi.homeDir }}/Code/dotfiles",
+    "{{ .chezmoi.homeDir }}/Code/eointraynor.github.io",
+    "{{ .chezmoi.homeDir }}/Code/temp-bolt-dev"
+  ]
+}

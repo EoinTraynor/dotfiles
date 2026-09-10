@@ -1,0 +1,3 @@
+{{- if (stat (printf "%s/.ssh/id_ed25519_signing.pub" .chezmoi.homeDir)) -}}
+{{ .email }} {{ include (printf "%s/.ssh/id_ed25519_signing.pub" .chezmoi.homeDir) | trim }}
+{{- end }}
