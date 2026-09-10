@@ -8,6 +8,8 @@
 {{- if (stat (printf "%s/.ssh/id_ed25519_signing" .chezmoi.homeDir)) }}
 [gpg]
 	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
 [commit]
 	gpgsign = true
 {{- end }}
