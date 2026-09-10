@@ -12,7 +12,8 @@
       "command(regex:(python|python3|pytest).*)",
       "command(regex:curl.*)",
       "read_url(antigravity.google)",
-      "mcp(filesystem/*)"
+      "mcp(filesystem/*)",
+      "command(agy)"
     ],
     "deny": [
       "command(regex:sudo .*)",
@@ -22,6 +23,10 @@
       "read_file(~/.ssh/**)",
       "read_file(~/.gnupg/**)"
     ]
+  },
+  "statusLine": {
+    "command": "python3 {{ .chezmoi.homeDir }}/.gemini/statusline.py",
+    "stack_with_default": true
   },
   "trustedWorkspaces": [
     "{{ .chezmoi.homeDir }}/Code/dotfiles",
